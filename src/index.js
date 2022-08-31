@@ -1,6 +1,5 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-// const middError = require('./middlewaresTalker/midErro');
 const routerTalker = require('./routerTalker/router');
 const routerIdTalker = require('./routerTalker/routerId');
 

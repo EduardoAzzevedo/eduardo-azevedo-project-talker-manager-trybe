@@ -19,4 +19,5 @@ const getAllTalkers = async () => {
 
 module.exports = {
   getAllTalkers,
+  readTakerFile,
 };
