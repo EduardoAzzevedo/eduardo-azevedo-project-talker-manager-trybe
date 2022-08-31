@@ -3,6 +3,10 @@ const bodyParser = require('body-parser');
 const routerTalker = require('./routerTalker/router');
 const routerIdTalker = require('./routerTalker/routerId');
 const routerLogin = require('./routerTalker/routerLogin');
+// const emptyEmail = require('./middlewaresTalker/emptyEmailValid');
+// const emailForm = require('./middlewaresTalker/validEmailForm');
+// const emptyPassword = require('./middlewaresTalker/emptyPassword');
+// const passwordLength = require('./middlewaresTalker/passwordLength');
 
 const app = express();
 app.use(bodyParser.json());
