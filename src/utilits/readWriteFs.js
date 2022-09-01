@@ -12,12 +12,24 @@ const readTakerFile = async () => {
   }
 };
 
-const getAllTalkers = async () => {
-  const allTalker = await readTakerFile();
-  return allTalker;
+const postNewTalker = async (post) => {
+  try {
+    const arrayTalker = await readTakerFile();
+    const newPost = {
+      id: arrayTalker.length + 1,
+
+      ...post,
+    };
+    arrayTalker.push(newPost);
+    await fs.writeFile(fileName, JSON.stringify(arrayTalker));
+    return newPost;
+  } catch (err) {
+    console.log(err);
+    return null;
+  }
 };
 
 module.exports = {
-  getAllTalkers,
   readTakerFile,
+  postNewTalker,
 };
