@@ -1,3 +1,4 @@
+/* eslint-disable no-tabs */
 const fs = require('fs/promises');
 
 const fileName = './src/talker.json';
@@ -29,7 +30,28 @@ const postNewTalker = async (post) => {
   }
 };
 
+const editTalkers = async (id, newInfo) => {
+  try {
+		const arrayTalkers = await readTakerFile();
+		console.log(arrayTalkers);
+		const talkerUpdate = arrayTalkers.find((talker) => talker.id === id);
+    if (talkerUpdate) {
+      const update = arrayTalkers.map((talker) => {
+        if (talker.id === id) {
+          return { ...talker, ...newInfo };
+        }
+        return talker;
+      });
+      await fs.writeFile(fileName, JSON.stringify(update));
+      return { id, ...newInfo };
+    }
+  } catch (error) {
+    return null;
+  }
+};
+
 module.exports = {
   readTakerFile,
   postNewTalker,
+  editTalkers,
 };
