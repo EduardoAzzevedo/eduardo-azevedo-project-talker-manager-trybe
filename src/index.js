@@ -6,10 +6,12 @@ const routerLogin = require('./routerTalker/routerLogin');
 const routerPost = require('./routerTalker/routerPostTalker');
 const routerDelete = require('./routerTalker/routerDelete');
 const routerEdit = require('./routerTalker/routerEdit');
+const routerQuery = require('./routerTalker/routerQuery');
 
 const app = express();
 app.use(bodyParser.json());
 app.use(routerTalker);
+app.use(routerQuery);
 app.use(routerIdTalker);
 app.use(routerLogin);
 app.use(routerPost);

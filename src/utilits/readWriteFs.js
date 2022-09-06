@@ -63,10 +63,17 @@ const deleteTalker = async (id) => {
   }
 };
 
+const querySearch = async (searchName) => {
+  const talkerList = await readTakerFile();
+  const filtredArray = talkerList.filter((talker) => talker.name.includes(searchName));
+  return filtredArray;
+};
+
 module.exports = {
   readTakerFile,
   writeFile,
   postNewTalker,
   editTalkers,
   deleteTalker,
+  querySearch,
 };
