@@ -33,15 +33,15 @@ const postNewTalker = async (post) => {
     arrayTalker.push(newPost);
     await fs.writeFile(fileName, JSON.stringify(arrayTalker));
     return newPost;
-  } catch (err) {
-    console.log(err);
+  } catch (erro) {
+    console.log(erro);
     return null;
   }
 };
 
 const editTalkers = async (id, newInfo) => {
-	const arrayTalkers = await readTakerFile();
-	const talkerUpdate = arrayTalkers.find((talker) => talker.id === id);
+  const arrayTalkers = await readTakerFile();
+  const talkerUpdate = arrayTalkers.find((talker) => talker.id === id);
   if (talkerUpdate) {
     const update = arrayTalkers.map((talker) => {
       if (talker.id === id) {
